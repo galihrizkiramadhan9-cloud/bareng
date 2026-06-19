@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Audio (Hidden) -->
+    <!-- Ganti src dengan link lagumu jika ingin musik yang berbeda -->
+    <audio id="bg-music" loop>
+        <source src="https://feeldreams.github.io/audio/almostday.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control -->
+    <button id="music-control" class="music-btn">
+        <span class="icon">▶️</span> Putar Musik
+    </button>
+
+    <!-- Latar Belakang Lampu/Bintang -->
+    <div id="stars-container"></div>
+
+    <div class="container">
+        <!-- Amplop -->
+        <div id="envelope-wrapper" class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope-top"></div>
+                <div class="envelope-left"></div>
+                <div class="envelope-right"></div>
+                <div class="envelope-bottom"></div>
+                <div class="letter-preview">
+                    <span>💌</span>
+                </div>
+            </div>
+            <p class="envelope-instruction">Ada surat buat kamu, klik untuk membuka </p>
+        </div>
+
+        <!-- Kartu Utama -->
+        <div id="card" class="card hidden">
+            <h1 id="main-title" class="title">Mau jalan sama aku? </h1>
+            <p id="main-subtitle" class="subtitle">Aku pengen ngajak kamu jalan jalan, mau kan? </p>
+            
+            <div class="buttons" id="main-buttons">
+                <button id="btn-yes" class="btn btn-primary">Iya, mau!</button>
+                <button id="btn-no" class="btn btn-secondary">Nanti dulu</button>
+            </div>
+            
+            <!-- Pilihan Lokasi -->
+            <div id="location-options" class="location-options" style="display: none;">
+                <p class="subtitle" style="margin-bottom: 15px; font-weight: bold; color: #ff4757;">Kita mau jalan ke mana nih? 👇</p>
+                <div class="buttons" id="location-buttons" style="flex-direction: column; gap: 10px;">
+                    <button class="btn btn-primary location-btn" data-loc="Nonton Bioskop">Nonton Bioskop 🍿</button>
+                    <button class="btn btn-primary location-btn" data-loc="Main Nitendo Switch"> Main Nitendo Switch dan makan</button>
+                    <button class="btn btn-primary location-btn" data-loc="Jalan-jalan Santai dan makan seblak">Jalan-jalan Santai dan makan seblak 🌳</button>
+                    <button class="btn btn-secondary location-btn" data-loc="custom">Ketik Sendiri Tujuanmu ✍️</button>
+                </div>
+                <!-- Input custom lokasi -->
+                <div id="custom-loc-container" style="display: none; flex-direction: column; gap: 10px; margin-top: 15px;">
+                    <input type="text" id="custom-loc-input" placeholder="Tulis tempatnya di sini..." style="padding: 12px; border-radius: 20px; border: 2px solid #ff4757; font-family: 'Poppins', sans-serif; outline: none; text-align: center; font-size: 14px;">
+                    <button id="btn-submit-loc" class="btn btn-primary">Lanjut >></button>
+                </div>
+            </div>
+
+            <!-- Pilihan Waktu -->
+            <div id="time-options" class="location-options" style="display: none;">
+                <p class="subtitle" style="margin-bottom: 15px; font-weight: bold; color: #ff4757;">Jam berapa nihhh? ⏰</p>
+                <div class="buttons" id="time-buttons" style="flex-direction: column; gap: 10px;">
+                    <button class="btn btn-primary time-btn" data-time="15:00">Jam 15:00 Sore</button>
+                    <button class="btn btn-primary time-btn" data-time="17:00">Jam 17:00 Sore</button>
+                    <button class="btn btn-primary time-btn" data-time="19:00">Jam 19:00 Malam</button>
+                    <button class="btn btn-secondary time-btn" data-time="custom">Ketik Jam Sendiri ✍️</button>
+                </div>
+                <!-- Input custom waktu -->
+                <div id="custom-time-container" style="display: none; flex-direction: column; gap: 10px; margin-top: 15px;">
+                    <input type="text" id="custom-time-input" placeholder="Tulis jamnya di sini..." style="padding: 12px; border-radius: 20px; border: 2px solid #ff4757; font-family: 'Poppins', sans-serif; outline: none; text-align: center; font-size: 14px;">
+                    <button id="btn-submit-time" class="btn btn-primary">Selesai ✨</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container Animasi -->
+    <div id="animation-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
